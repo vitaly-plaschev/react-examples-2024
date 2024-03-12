@@ -1,16 +1,11 @@
 import Todo from "../todo/Todo";
 import todolistStyle from "./todolist.module.css";
 
-const priorityValues = {
-  High: 3,
-  Medium: 2,
-  Low: 1,
-};
-
 function TodoList({ todos }) {
   const todoCards = todos
-    .sort((a, b) => priorityValues[b.priority] - priorityValues[a.priority])
-    .map((todo, index) => <Todo key={index} todo={todo} />);
+    .filter((todo) => todo.status === "In progress")
+    .sort((a, b) => new Date(a.date) - new Date(b.date))
+    .map((todo) => <Todo key={todo.id} todo={todo} />);
   return <div className={todolistStyle.todolist}>{todoCards}</div>;
 }
 

@@ -1,4 +1,5 @@
 import todoStyle from "./todo.module.css";
+
 const priorityColors = {
   High: "red",
   Medium: "blue",
@@ -14,6 +15,9 @@ function Todo({ todo }) {
       <h2>{todo.title}</h2>
       {priority}
       <p>{todo.date}</p>
+      <p>
+        <b>{todo.status}</b>
+      </p>
     </div>
   );
 }
