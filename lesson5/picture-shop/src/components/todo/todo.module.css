@@ -1,0 +1,13 @@
+.todo {
+  padding: "20px";
+  background-color: wheat;
+  color: "#44046";
+  border: 1px solid grey;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.todo:hover {
+  background-color: #f5ce93;
+}
