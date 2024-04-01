@@ -1,24 +1,24 @@
-import { useState } from "react";
+import { useRef } from "react";
 import sorterStyle from "./serviceSorter.module.css";
 
 function ServiceSorter({ data, setSortedItems }) {
-  const [order, setOrder] = useState(true);
+  const order = useRef(null);
 
   const handleClick = () => {
-    setOrder(!order);
-    
+    order.current = !order.current;
+
     const dataCopy = JSON.parse(JSON.stringify(data));
     let sortedItems = dataCopy.sort((a, b) =>
       a.description > b.description ? 1 : b.description > a.description ? -1 : 0
     );
 
-    setSortedItems(order ? sortedItems : sortedItems.reverse());    
+    setSortedItems(order.current ? sortedItems : sortedItems.reverse());
   };
 
   return (
     <div className={sorterStyle.container}>
       <button onClick={handleClick}>
-        {order === null ? "Sort" : !!order ? "ASC" : "DESC"}
+        {order.current === null ? "Sort" : !!order.current ? "ASC" : "DESC"}
       </button>
     </div>
   );
