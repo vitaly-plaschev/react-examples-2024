@@ -1,6 +1,5 @@
 import InfoCard from "../card/InfoCard";
 import ServiceSorter from "../../sorters/serviceSorter/ServiceSorter";
-import { v4 as uuidv4 } from "uuid";
 
 export default function InfoList({ data, gridStyle, setSortedItems }) {
   return (
@@ -9,8 +8,8 @@ export default function InfoList({ data, gridStyle, setSortedItems }) {
         <ServiceSorter data={data} setSortedItems={setSortedItems} />
       )}
       <div style={gridStyle}>
-        {data.map((dataElem) => (
-          <InfoCard key={uuidv4()} info={dataElem} />
+        {data.map((dataElem, index) => (
+          <InfoCard key={`${dataElem.type}${index}`} info={dataElem} />
         ))}
       </div>
     </div>

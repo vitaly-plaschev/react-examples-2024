@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 
 const data = [
   {
@@ -33,8 +32,8 @@ function Link({ text, filePath }) {
 export default function LinksList() {
   return (
     <ul>
-      {data.map((elem) => (
-        <Link key={uuidv4()} text={elem.text} filePath={elem.path} />
+      {data.map((elem, index) => (
+        <Link key={`${elem.path}${index}`} text={elem.text} filePath={elem.path} />
       ))}
     </ul>
   );
