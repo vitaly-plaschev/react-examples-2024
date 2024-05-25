@@ -1,0 +1,33 @@
+.link {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+  border-right: 1px solid gray;
+  background-color: cornflowerblue;
+  color: whitesmoke;
+}
+.active {
+  background-color: darkblue;
+  color: whitesmoke;
+}
+
+.pending {
+  background-color: darkblue;
+  transition: background-color 0.5s;
+  transition-delay: 100ms;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  background-color: #ccc;
+  padding: 10px;
+  gap: 10px;
+}
+
+.sideNav {
+  display: flex;
+  flex-direction: column;
+}
